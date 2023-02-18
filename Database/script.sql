@@ -1,0 +1,32 @@
+CREATE SCHEMA IF NOT EXISTS stage;
+
+CREATE TABLE IF NOT EXISTS stage.air_pollution_file (
+	state_code text,
+	county_code text,
+	site_num text,
+	address text,
+	state_name text,
+	county text,
+	city text,
+	date_local text,
+	no2_units text,
+	no2_mean text,
+	no2_1st_max_value text,
+	no2_1st_max_hour text,
+	no2_aqi text,
+	o3_units text,
+	o3_mean text,
+	o3_1st_max_value text,
+	o3_1st_max_hour text,
+	o3_aqi text,
+	so2_units text,
+	so2_mean text,
+	so2_1st_max_value text,
+	so2_1st_max_hour text,
+	so2_aqi text,
+	co_units text,
+	co_mean text,
+	co_1st_max_value text,
+	co_1st_max_hour text,
+	co_aqi text
+);
