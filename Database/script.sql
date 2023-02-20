@@ -40,9 +40,15 @@ CREATE TABLE IF NOT EXISTS stage.dim_state
 	state_name text
 );
 
-CREATE TABLE IF NOT EXISTS stage.dim_state
+CREATE TABLE IF NOT EXISTS stage.dim_county
 (
-	state_code text,
-	state_name text
+	county_code text,
+	county_name text
 );
 
+CREATE TABLE IF NOT EXISTS stage.dim_address
+(
+	site_num text,
+	address text,
+	city text
+);
