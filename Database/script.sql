@@ -33,3 +33,9 @@ CREATE TABLE IF NOT EXISTS stage.air_pollution_file
     co_aqi text,
     date_added timestamp default now()::timestamp(0)
 );
+
+CREATE TABLE IF NOT EXISTS stage.dim_state
+(
+	state_code text,
+	state_name text
+);
