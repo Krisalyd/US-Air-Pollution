@@ -26,7 +26,6 @@ def load_pollution_file(**kwargs):
     # Get the csv file path
     csv_file_path = kwargs['params']['csv_file_path']
 
-    # Inicializa o contador
     i = 0
 
     # Open the csv file
@@ -36,7 +35,6 @@ def load_pollution_file(**kwargs):
         for item in reader:
             i += 1
 
-            # Extrai uma linha como dicionário
             current_data = dict(item)
 
             # Insert data into the PostgreSQL table
@@ -44,14 +42,12 @@ def load_pollution_file(**kwargs):
                 ','.join(current_data.keys()).replace(' ', '_'),
                 ','.join(["'" + item + "'" if len(item) != 0 else "'" + 'N/A' + "'" for item in current_data.values()]))
 
-            # Operador do Postgres com incremento no id da tarefa (para cada linha inserida)
             postgres_operator = PostgresOperator(task_id='loading_file_' + str(i),
                                                  sql=sql_query_data,
                                                  params=current_data,
                                                  postgres_conn_id='AirPollutionDW',
                                                  dag=dag_air_pollution)
 
-            # Executa o operador
             postgres_operator.execute(context=kwargs)
 
 
@@ -63,8 +59,11 @@ load_file = PythonOperator(
     dag=dag_air_pollution
 )
 
+truncate_database = PostgresOperator(task_id='truncate_database', postgres_conn_id='AirPollutionDW',
+                                     sql="TRUNCATE TABLE stage.air_pollution_file", dag=dag_air_pollution)
+
 # Upstream
-load_file
+truncate_database >> load_file
 
 if __name__ == "__main__":
     dag_air_pollution.cli()
