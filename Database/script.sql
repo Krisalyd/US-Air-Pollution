@@ -39,3 +39,10 @@ CREATE TABLE IF NOT EXISTS stage.dim_state
 	state_code text,
 	state_name text
 );
+
+CREATE TABLE IF NOT EXISTS stage.dim_state
+(
+	state_code text,
+	state_name text
+);
+
