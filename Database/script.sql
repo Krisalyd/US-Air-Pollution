@@ -37,24 +37,28 @@ CREATE TABLE IF NOT EXISTS stage.air_pollution_file
 CREATE TABLE IF NOT EXISTS stage.dim_state
 (
 	state_code text,
-	state_name text
+	state_name text,
+	 date_added timestamp without time zone DEFAULT (now())::timestamp(0) without time zone
 );
 
 CREATE TABLE IF NOT EXISTS stage.dim_county
 (
 	county_code text,
-	county_name text
+	county_name text,
+	 date_added timestamp without time zone DEFAULT (now())::timestamp(0) without time zone
 );
 
 CREATE TABLE IF NOT EXISTS stage.dim_address
 (
 	site_num text,
 	address text,
-	city text
+	city text,
+	 date_added timestamp without time zone DEFAULT (now())::timestamp(0) without time zone
 );
 
 CREATE TABLE IF NOT EXISTS stage.dim_date
 (
 	date_id text,
-	date text
+	date text,
+	 date_added timestamp without time zone DEFAULT (now())::timestamp(0) without time zone
 );
