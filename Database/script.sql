@@ -52,3 +52,9 @@ CREATE TABLE IF NOT EXISTS stage.dim_address
 	address text,
 	city text
 );
+
+CREATE TABLE IF NOT EXISTS stage.dim_date
+(
+	date_id text,
+	date text
+);
