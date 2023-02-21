@@ -1,5 +1,7 @@
 CREATE SCHEMA IF NOT EXISTS stage;
 
+CREATE SCHEMA IF NOT EXISTS dw;
+
 CREATE TABLE IF NOT EXISTS stage.air_pollution_file
 (
     air_poll_id text,
