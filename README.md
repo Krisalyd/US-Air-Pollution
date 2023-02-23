@@ -1,4 +1,4 @@
-# US-Air-Pollution
+# US Air Pollution Data
 This ETL project was made with the purpose of cleaning the data related to the US's Air Pollution.
 
 URL to the original file, with a better description of the file's content:
